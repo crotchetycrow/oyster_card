@@ -19,7 +19,17 @@ Creating a project that acts like an oyster card.
 
   DONE
 
+3. Learn debugging basics
+- [x] Write down the file path where the error happened
+*/Users/jackhooper/Documents/Makers/Week Two - (Full Course)/oyster_card/spec/oystercard_spec.rb*
+- [x] Write down the line number of the error
+*rb:2*
+- [x] Use the Ruby Documentation to find out what the error means
+*There is no Oystercard class so cannot produce anything*
+- [x] Suggest one way of solving the error
+*Create an Oystercard class in a lib dir*
 
+  DONE
 
 ----------------------------------
 
