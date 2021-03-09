@@ -5,6 +5,7 @@ class Oystercard
   DEFAULT_BALANCE = 0
   MINIMUM_BALANCE = 1
   MAXIMUM_LIMIT = 90
+  MINIMUM_FARE = -1
 
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
@@ -18,21 +19,24 @@ class Oystercard
     "Card succesfully topped up. Balance is now £#{@balance}."
   end
 
-  def deduct(fare)
-    @balance -= fare
-    "£#{fare} Fare deducted. New balance is £#{@balance}."
-  end
-
   def touch_in
     raise "Card does not have a minimum balance of £1. Please top up." unless @balance >= MINIMUM_BALANCE
     @in_use = true
   end
 
   def touch_out
+    @balance += MINIMUM_FARE
     @in_use = false
+
   end
 
   def in_journey?
     @in_use
+  end
+
+private
+  def deduct(fare)
+    @balance -= fare
+    "£#{fare} Fare deducted. New balance is £#{@balance}."
   end
 end

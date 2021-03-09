@@ -25,7 +25,7 @@ describe Oystercard do
 
   describe "#deduct" do
     it "deducts a fare from the balance" do
-      expect(test_card.deduct(4)).to eq "£4 Fare deducted. New balance is £36."
+      expect(test_card.send(:deduct,4)).to eq "£4 Fare deducted. New balance is £36."
     end
   end
 
@@ -50,6 +50,10 @@ describe Oystercard do
 
     it "returns false if called" do
       expect(subject.touch_out).to eq false
+    end
+
+    it "deducts MINIMUM AMOUNT from oystercard" do
+      expect { test_card.touch_out }.to change{ test_card.balance }.by(Oystercard::MINIMUM_FARE)
     end
   end
 
