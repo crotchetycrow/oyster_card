@@ -35,7 +35,11 @@ describe Oystercard do
     end
 
     it "returns true if called" do
-      expect(subject.touch_in).to eq true
+      expect(test_card.touch_in).to eq true
+    end
+
+    it "raises an error if card does not have the MINIMUM AMOUNT to travel" do
+      expect{subject.touch_in}.to raise_error "Card does not have a minimum balance of £#{Oystercard::MINIMUM_BALANCE}. Please top up."
     end
   end
 

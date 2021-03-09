@@ -79,7 +79,13 @@ DONE
 
 DONE
 
-9. 
+9. Checking minimum balance on touch in
+
+- [x] Write up a plan for how you will interact with your code and manually test in IRB.
+- [x] Write a test that checks that an error is thrown if a card with insufficient balance is touched in
+- [x] Write the implementation
+- [x] Update existing tests, if necessary, to make sure they still pass
+- [x] Refactor to remove any magic numbers and replace with a constant
 
 ----------------------------------
 
@@ -115,3 +121,12 @@ I need to touch in and out.
 
 >oyster.touch_in
 >> allows user to go through barriers
+
+In order to pay for my journey
+As a customer
+I need to have the minimum amount (£1) for a single journey.
+
+> oyster.balance
+>> 0.5
+> oyster.touch_in
+>> "error: Card does not have the MINIMUM_BALANCE of £1. Please top up."
