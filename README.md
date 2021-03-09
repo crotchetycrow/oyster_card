@@ -44,9 +44,29 @@ Creating a project that acts like an oyster card.
 5. Enable top up functionality
 - [x] Write up a plan for how you will interact with your code and manually test in IRB.
 - [x] Write a test for the top_up method
-- [ ] Make sure the test fails before implementing the method
-- [ ] Implement the method to make the test pass
+- [x] Make sure the test fails before implementing the method
+- [x] Implement the method to make the test pass
 
+DONE
+
+6. Enforce maximum balance
+
+- [x] Write up a plan for how you will interact with your code and manually test in IRB.
+- [x] Write a test that checks the `top_up` method throws an exception if the new balance would exceed the limit.
+- [x] Use a constant to store the limit
+- [x] Implement the limit in the top_up method. Use an inline `if` statement to check if the limit would be exceeded
+- [x] Make the error message include the limit value
+- [x] Use interpolation to keep your code DRY
+
+7. Deduct the money
+
+- [x] Write up a plan for how you will interact with your code and manually test in IRB.
+- [x] Write a test for the `deduct` method, see it fail
+- [x] Implement the method, see the test pass
+
+DONE
+
+8
 
 ----------------------------------
 
@@ -59,3 +79,19 @@ User story 2
 |In order to keep using public transport|
 |As a customer|
 |I want to add money to my card|
+
+|In order to protect my money from theft or loss|
+|As a customer|
+|I want a maximum limit (of £90) on my card|
+
+>oyster.top_up(40)
+>> "Card succesfully topped up. Balance is now £40."
+>oyster.top_up(60)
+>> "Card max limit is £90. Top up failed, no money added."
+
+In order to pay for my journey
+As a customer
+I need my fare deducted from my card
+
+>oyster.deduct(4)
+>> £4 Fare deducted. New balance is £36.
