@@ -33,6 +33,7 @@ describe Oystercard do
     it "allows user to go through barriers" do
       expect(subject).to respond_to(:touch_in)
     end
+
     it "returns true if called" do
       expect(subject.touch_in).to eq true
     end
@@ -42,7 +43,8 @@ describe Oystercard do
     it "allows user to exit the barriers" do
       expect(subject).to respond_to(:touch_out)
     end
-    it "returns true if called" do
+
+    it "returns false if called" do
       expect(subject.touch_out).to eq false
     end
   end
@@ -50,6 +52,20 @@ describe Oystercard do
   describe "#in_journey?" do
     it "checks whether user is currently in a journey" do
       expect(subject).to respond_to(:in_journey?)
+    end
+
+    it "returns true when card is in use on a journey" do
+      test_card.touch_in
+      expect(test_card).to be_in_journey
+    end
+
+    it "returns false when card is newly created" do
+      expect(subject.in_journey?).to eq false
+    end
+
+    it "returns false when card is touched out and no longer in use" do
+      test_card.touch_out
+      expect(test_card).not_to be_in_journey
     end
   end
 end
