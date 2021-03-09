@@ -16,4 +16,8 @@ class Oystercard
     "Card succesfully topped up. Balance is now £#{@balance}."
   end
 
+  def deduct(fare)
+    @balance -= fare
+    "£#{fare} Fare deducted. New balance is £#{@balance}."
+  end
 end
