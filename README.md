@@ -41,6 +41,12 @@ Creating a project that acts like an oyster card.
 
   DONE
 
+5. Enable top up functionality
+- [ ] Write up a plan for how you will interact with your code and manually test in IRB.
+- [ ] Write a test for the top_up method
+- [ ] Make sure the test fails before implementing the method
+- [ ] Implement the method to make the test pass
+
 
 ----------------------------------
 
@@ -48,3 +54,8 @@ User story 1
 | In order to use public transport|
 |As a customer|
 |I want money on my card|
+
+User story 2
+|In order to keep using public transport|
+|As a customer|
+|I want to add money to my card|
