@@ -92,4 +92,10 @@ describe Oystercard do
       expect(test_card.current_station).to eq nil
     end
   end
+
+  describe "#check_history" do
+    it "checks the travel history of an oystercard" do
+      expect(subject.check_history).to eq "London Victoria, Croydon" 
+    end
+  end
 end

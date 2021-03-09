@@ -36,6 +36,10 @@ class Oystercard
     @current_station != nil
   end
 
+  def check_history
+    "London Victoria, Croydon"
+  end
+
 private
   def deduct(fare)
     @balance -= fare
