@@ -90,6 +90,23 @@ DONE
 - [x] Make '#deduct' a private method
 - [x] Keep the code DRY
 
+
+11. Saving the entry station
+
+- [x] Write up a plan for how you will interact with your code and manually test in IRB
+- [x] Using a double, write a test that expects the card to remember the entry station after the touch in
+- [x] Update the `touch_in` method to accept the entry station
+- [x] Update existing tests to pass a station to the `touch_in` method - you may need to declare your double in a `let` statement at the top of your describe block
+- [x] Expose `entry_station` instance variable using an attribute reader
+- [x] Make the card forget the entry station on touch out by setting it to `nil`
+- [x] When your tests are all green, refactor to remove the `in_journey` variable. Rewrite the `in_journey?` method to infer its status based on whether or not there is an entry station
+
+DONE#
+
+12. Adding journey history
+
+
+
 ----------------------------------
 
 User story 1
@@ -137,3 +154,11 @@ User story 2
 |In order to pay for my journey|
 |As a customer|
 |When my journey is complete, I need the correct amount deducted from my card|
+
+In order to pay for my journey
+As a customer
+I need to know where I've travelled from
+
+>oyster.touch_in(station)
+>>@current_station = station
+>oyster.current_station = station

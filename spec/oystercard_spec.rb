@@ -2,6 +2,7 @@ require "./lib/oystercard"
 
 describe Oystercard do
   let(:test_card) { Oystercard.new(40) }
+  let(:test_station) { double :test_station }
 
   describe "#balance" do
     it "checks balance" do
@@ -35,11 +36,11 @@ describe Oystercard do
     end
 
     it "returns true if called" do
-      expect(test_card.touch_in).to eq true
+      expect(test_card.touch_in(test_station)).to eq true
     end
 
     it "raises an error if card does not have the MINIMUM AMOUNT to travel" do
-      expect{subject.touch_in}.to raise_error "Card does not have a minimum balance of £#{Oystercard::MINIMUM_BALANCE}. Please top up."
+      expect{subject.touch_in(test_station)}.to raise_error "Card does not have a minimum balance of £#{Oystercard::MINIMUM_BALANCE}. Please top up."
     end
   end
 
@@ -63,7 +64,7 @@ describe Oystercard do
     end
 
     it "returns true when card is in use on a journey" do
-      test_card.touch_in
+      test_card.touch_in(test_station)
       expect(test_card).to be_in_journey
     end
 
@@ -74,6 +75,21 @@ describe Oystercard do
     it "returns false when card is touched out and no longer in use" do
       test_card.touch_out
       expect(test_card).not_to be_in_journey
+    end
+  end
+
+  describe "#current_station" do
+    before do
+      test_card.touch_in(test_station)
+    end
+
+    it "tells you the current station after touch in" do
+      expect(test_card.current_station).to eq test_station
+    end
+
+    it "does not have a current station on touch out" do
+      test_card.touch_out
+      expect(test_card.current_station).to eq nil
     end
   end
 end
