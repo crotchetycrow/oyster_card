@@ -31,6 +31,17 @@ Creating a project that acts like an oyster card.
 
   DONE
 
+4. Add the balance
+- [x] Write up a plan for how you will interact with your code and manually test in IRB.
+- [x] Create a unit test for the Oystercard class
+- [x] Write a failing test that checks that a new card has a balance
+- [x] Write code that will make this test pass
+- [x] Now refactor by setting the balance in initialize using an instance variable
+- [x] Remove the balance method entirely and replace with an attr_reader
+
+  DONE
+
+
 ----------------------------------
 
 User story 1
