@@ -20,4 +20,16 @@ class Oystercard
     @balance -= fare
     "£#{fare} Fare deducted. New balance is £#{@balance}."
   end
+
+  def touch_in
+    @in_use = true
+  end
+
+  def touch_out
+    @in_use = false
+  end
+
+  def in_journey?
+
+  end
 end

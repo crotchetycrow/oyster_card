@@ -28,4 +28,28 @@ describe Oystercard do
       expect(test_card.deduct(4)).to eq "£4 Fare deducted. New balance is £36."
     end
   end
+
+  describe "#touch_in" do
+    it "allows user to go through barriers" do
+      expect(subject).to respond_to(:touch_in)
+    end
+    it "returns true if called" do
+      expect(subject.touch_in).to eq true
+    end
+  end
+
+  describe "#touch_out" do
+    it "allows user to exit the barriers" do
+      expect(subject).to respond_to(:touch_out)
+    end
+    it "returns true if called" do
+      expect(subject.touch_out).to eq false
+    end
+  end
+
+  describe "#in_journey?" do
+    it "checks whether user is currently in a journey" do
+      expect(subject).to respond_to(:in_journey?)
+    end
+  end
 end
